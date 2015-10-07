@@ -2,12 +2,12 @@
 *NRF24 Library for Arduino, AVR 8 bit Microntrollers.*
 
 ## Overview
-This library provides a simple but comprehensive support for NRF24 based radios to operate on 8 bit AVR Arduino boards as well as standalone AVR microntrollers.
-It is a direct imlementation of the SPI based device specification detailed in the [NRF24 datasheet](https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P).
+This library provides a simple yet comprehensive support for NRF24 based transceivers to operate on 8 bit AVR Arduino boards as well as standalone AVR microcontrollers.
+It is a direct implementation of the SPI based device specification detailed in the [NRF24 datasheet](https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P).
 
 For simplicity and to require the least amount of configuration, the default settings are for the most general use that includes a two way communication with dynamic payload and payload acknowledgement. The default behavior can be changed to more specific configurations through documented register operations.
 
-For any details please consult the header files and underlying inlined implementation. The code should be fairly self-explanatory.
+For more details please consult the header files and underlying inlined implementation. The code should be fairly self-explanatory.
 
 ## Example
 Right off the bat the library can be used for a range test between two devices using the `Console` and `Receiver` examples. The `Console` example is an interactive serial console application that when set in base mode can be used to send variable size packets to which the `Receiver` application responds. `Console` can also be used to scan the surroundings for used channels and can be easily extended to perform other test operations.
@@ -15,7 +15,7 @@ Right off the bat the library can be used for a range test between two devices u
 To use `Console` simply change the code to reflect the pin connections to the Arduino board, compile, upload, and open the Arduino serial console (or your preferred serial console application, I use CoolTerm) configured as 115200 8N1. It is best to use line mode if available with LF only termination.
 
 To perform a channel scan just type `scan` and hit enter.
-For a range test instead, load the `Receiver`application to another device and choose the `base`command in `Console`, where packet size and use of acknoledgment can be set as arguments.
+For a range test instead, load the `Receiver`application to another device and choose the `base`command in `Console`, where packet size and use of acknowledgment can be set as arguments.
 
 For illustration a portion of the `Console` example code is reported here.
 The pinout configuration is specified through template programming for both IO speed and code readability. Here, if I have a spare pin available I prefer to use the optional IRQ signal in order to reduce SPI bus activity when internally polling the nRF24 device.
